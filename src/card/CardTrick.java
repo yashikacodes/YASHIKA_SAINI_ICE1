@@ -4,12 +4,15 @@
  */
 package card;
 
+//YASHIKA SAINI
+//STUDENT NUMBER - 991708471 
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
  * and then asks the user to pick a card and searches the array of cards
  * for the match to the user's card. To be used as starting code in ICE 1
  * @author srinivsi
  */
+import java.util.*;
 public class CardTrick {
     
     public static void main(String[] args)
@@ -19,14 +22,51 @@ public class CardTrick {
         for (int i=0; i<magicHand.length; i++)
         {
             Card c = new Card();
-            //c.setValue(insert call to random number generator here)
-            //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+            Random random = new Random();
+            
+            //Generating random values and suits
+
+            c.setValue(random.nextInt(13) + 1);
+            c.setSuit(Card.SUITS[random.nextInt(4)]);
+
+            magicHand[i] = c;
         }
         
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
-        //HEHE
+        Scanner scanner = new Scanner(System.in);
+         
+         //Asking the user to guess
+         
+        System.out.print("Enter a card suit (Hearts, Diamonds, Spades, Clubs): ");
+        String suit = scanner.nextLine();
+
+        System.out.print("Enter a card value (1-13): ");
+        int value = scanner.nextInt();
+        
+        //Storing the user's guess in a new card
+
+        Card userCard = new Card();
+        userCard.setValue(value);
+        userCard.setSuit(suit);
+
+        //Checking the user's guess in magicHand by iterating through
+       
+        boolean found = false;
+
+        for (Card card : magicHand) {
+            if (card.getSuit().equalsIgnoreCase(userCard.getSuit()) && card.getValue() == userCard.getValue()) {
+                found = true;
+                break;
+            }
+        }
+
+        //Displaying the result
+        
+        if (found) {
+            System.out.println("Congratulations! Your card was found in the magic hand.");
+        } else {
+            System.out.println("Sorry, your card was not found in the magic hand.");
+        }
+   
     }
     
 }
