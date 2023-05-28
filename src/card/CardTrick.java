@@ -68,6 +68,11 @@ public class CardTrick {
         } else {
             System.out.println("Sorry, your card was not found in the magic hand.");
         }
+        
+        //Here's a gitHub edited hard-coded luckyCard
+        Card luckyCard = new Card();
+        luckyCard.setValue(7);  // Set the card value of your choice
+        luckyCard.setSuit("Hearts");  // Set the card suit of your choice
    
     }
     
