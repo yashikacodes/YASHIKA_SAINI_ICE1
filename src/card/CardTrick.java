@@ -73,6 +73,22 @@ public class CardTrick {
         Card luckyCard = new Card();
         luckyCard.setValue(7);  // Set the card value of your choice
         luckyCard.setSuit("Hearts");  // Set the card suit of your choice
+        
+        //Searching the luckyCard in the array
+        boolean found2 = false;
+
+        for (Card card2 : magicHand) {
+            if (card2.getSuit().equalsIgnoreCase(luckyCard.getSuit()) && card2.getValue() == luckyCard.getValue()) {
+                found2 = true;
+                break;
+            }
+            
+        if(found2){
+        System.out.println("luckyCard found!");
+        }
+        else{
+        System.out.println("luckyCard not found");
+        }
    
     }
     
